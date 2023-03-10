@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from '../axiosInstance';
 
 export default function Cats() {
-  const SERVER_BASE_URL = process.env.REACT_APP_SERVER_BASE_URL || 8000;
-  const [cats, setCats] = useState([
+    const [cats, setCats] = useState([
     {
       _id: 1,
       breed: "Bengal",
@@ -146,23 +145,23 @@ export default function Cats() {
   useEffect(() => {
     if (breed) {
       axios
-        .get(`${SERVER_BASE_URL}/api/cats/breed/${breed}`)
+        .get(`/api/cats/breed/${breed}`)
         .then((res) => setCats(res.data))
         .catch((e) => console.log(e));
     } else if (query) {
       axios
         .get(
-          `${process.env.REACT_APP_SERVER_BASE_URL}/api/cats/search/${query}`
+          `/api/cats/search/${query}`
         )
         .then((res) => setCats(res.data))
         .catch((e) => console.log(e));
     } else {
       axios
-        .get(`${process.env.REACT_APP_SERVER_BASE_URL}/api/cats`)
+        .get(`/api/cats`)
         .then((res) => setCats(res.data))
         .catch((e) => console.log(e));
     }
-  }, [SERVER_BASE_URL, breed, query]);
+  }, [breed, query]);
 
   return (
     <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
