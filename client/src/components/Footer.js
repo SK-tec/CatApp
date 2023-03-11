@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="bg-white bg-yellow-800">
+    <footer className="bg-white bg-yellow-600">
       <div className="grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">
+          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
             Company
           </h2>
-          <ul className="text-gray-500 dark:text-gray-400">
+          <ul className="text-gray-500 dark:text-gray-800">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 About
@@ -30,10 +30,10 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">
+          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
             Help center
           </h2>
-          <ul className="text-gray-500 dark:text-gray-400">
+          <ul className="text-gray-500 dark:text-gray-800">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 Discord Server
@@ -57,10 +57,10 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">
+          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
             Legal
           </h2>
-          <ul className="text-gray-500 dark:text-gray-400">
+          <ul className="text-gray-500 dark:text-gray-800">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 Privacy Policy
@@ -79,10 +79,10 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">
+          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
             Download
           </h2>
-          <ul className="text-gray-500 dark:text-gray-400">
+          <ul className="text-gray-500 dark:text-gray-800">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 iOS
@@ -106,15 +106,15 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+      <div className="px-4 py-6 bg-gray-100 dark:bg-gray-800 md:flex md:items-center md:justify-between">
         <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-          © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
+          © 2023 <a href="https://flowbite.com/">Kitty Cat Club</a>. All Rights
           Reserved.
         </span>
         <div className="flex mt-4 space-x-6 sm:justify-center md:mt-0">
           <a
             href="#!"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -132,7 +132,7 @@ export default function Footer() {
           </a>
           <a
             href="#!"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -150,7 +150,7 @@ export default function Footer() {
           </a>
           <a
             href="#!"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -164,7 +164,7 @@ export default function Footer() {
           </a>
           <a
             href="#!"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
@@ -182,7 +182,7 @@ export default function Footer() {
           </a>
           <a
             href="#!"
-            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
+            className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
           >
             <svg
               className="w-5 h-5"
