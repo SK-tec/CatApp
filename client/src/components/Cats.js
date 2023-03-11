@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from '../axiosInstance';
+import axios from "../axiosInstance";
 
 export default function Cats() {
-    const [cats, setCats] = useState([
+  const [cats, setCats] = useState([
     {
       _id: 1,
       breed: "Bengal",
@@ -150,9 +150,7 @@ export default function Cats() {
         .catch((e) => console.log(e));
     } else if (query) {
       axios
-        .get(
-          `/api/cats/search/${query}`
-        )
+        .get(`/api/cats/search/${query}`)
         .then((res) => setCats(res.data))
         .catch((e) => console.log(e));
     } else {
@@ -164,7 +162,7 @@ export default function Cats() {
   }, [breed, query]);
 
   return (
-    <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <div className="md:container mx-auto p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
       {cats.map((cat) => (
         <div key={cat._id} className="rounded overflow-hidden shadow-lg">
           <img className="w-full" src={cat.url} alt={cat.breed} />
