@@ -169,7 +169,7 @@ export default function Cats() {
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{cat.breed}</div>
             <p className="text-gray-700 text-base">
-              Temperament: {cat.temperament}
+              {cat.temperament}
             </p>
           </div>
           <div className="px-6 pt-4 pb-2">
