@@ -24,6 +24,11 @@
   color: white;
 }
 
+h1{
+  color: purple;
+  font-family: 'Rampart One', cursive;
+}
+
 .App-link {
   color: #61dafb;
 }
