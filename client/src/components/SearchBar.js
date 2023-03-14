@@ -7,7 +7,7 @@ export default function SearchBar() {
   const [query, setQuery] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search/${query}`);
+    navigate(`/${query}`);
   };
   return (
     <div className="search-container ">

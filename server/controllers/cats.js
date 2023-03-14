@@ -15,6 +15,25 @@ const getAllCats = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+const searchCats = async (req, res) => {
+  const s = req.params.query;
+  try {
+    const cats = await Cat.find({
+      $or: [
+        { breed: new RegExp(s, "i") },
+        { temperament: new RegExp(s, "i") },
+        { origin: new RegExp(s, "i") },
+      ],
+    });
+    if (cats.length === 0) {
+      res.status(404).json({ message: "No cats found that match your search" });
+      return;
+    }
+    res.json(cats);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 const getCatById = async (req, res) => {
   try {
     const cats = await Cat.find({ _id: req.params.id });
@@ -53,4 +72,11 @@ const deleteCat = async (req, res) => {
   }
 };
 
-module.exports = { createCat, getAllCats, getCatById, updateCat, deleteCat };
+module.exports = {
+  createCat,
+  getAllCats,
+  searchCats,
+  getCatById,
+  updateCat,
+  deleteCat,
+};
