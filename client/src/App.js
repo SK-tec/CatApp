@@ -7,6 +7,7 @@ import CatDetails from "./components/CatDetails";
 import Footer from "./components/Footer";
 import CreateEditCat from "./components/CreateEditCat";
 
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
         <Route path="/:query" element={<Cats />} />
         <Route path="/cats/:id" element={<CatDetails />} />
         <Route path="/createEditCat" element={<CreateEditCat />} />
+        
         <Route path="/breed/:breed" element={<Cats />} />
       </Routes>
       <Footer />

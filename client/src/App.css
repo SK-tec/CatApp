@@ -1,12 +1,22 @@
 .App {
   text-align: center;
+  
 }
+
 
 .search-container {
   display: flex;
   justify-content: center;
 }
 
+h1{
+  color: rgb(179, 10, 179);
+  font-family: 'Rampart One', cursive;
+}
+
+.App-link {
+  color: #61dafb;
+}
 .search-bar {
   min-width: 25%;
   margin: 1rem 0;
