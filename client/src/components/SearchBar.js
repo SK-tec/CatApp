@@ -10,9 +10,9 @@ export default function SearchBar() {
     navigate(`/search/${query}`);
   };
   return (
-    <div className="search-container bg-yellow-700">
+    <div className="search-container ">
       <div className="search-bar">
-        <form onSubmit={handleSubmit} className="search-content">
+        <form onSubmit={handleSubmit} className="search-content ">
           <input
             placeholder="Search for cool cats"
             value={query}
