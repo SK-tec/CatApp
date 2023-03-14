@@ -1,44 +1,62 @@
-
+import { useState } from "react";
+import axios from "../axiosInstance";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateEditCat() {
+    
+const navigate = useNavigate();
+  const [cat, setCat] = useState(null);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setCat({ ...cat, [name]: value });
+    
+  }; console.log(cat);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`/api/cats`, cat)
+      .then((res) => navigate(`/`))
+      .catch((e) => console.log(e));
+  };
     return(
         <>
         
-        <form>
-  <div className="relative z-0 w-full mb-6 group">
-      <input type="email" name="floating_email" id="floating_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
-  </div>
-  <div className="relative z-0 w-full mb-6 group">
-      <input type="password" name="floating_password" id="floating_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
-  </div>
-  <div className="relative z-0 w-full mb-6 group">
-      <input type="password" name="repeat_password" id="floating_repeat_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-      <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
-  </div>
-  <div className="grid md:grid-cols-2 md:gap-6">
-    <div className="relative z-0 w-full mb-6 group">
-        <input type="text" name="floating_first_name" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_first_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
+        <div className="flex justify-center  my-8 w-full ">
+    <div className="w-1/2 bg-blue-300 rounded shadow-2xl p-8 m-2">
+        <h2 className="block w-full text-center text-gray-800 text-2xl font-bold mb-6">Add cat</h2>
+        <form onSubmit={handleSubmit} >
+            <div className="flex flex-col mb-4">
+                <label className="mb-2 font-bold text-lg text-gray-900" for="first_name">Breed</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="breed" id="breed" />
+            </div>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2 font-bold text-lg text-gray-900" for="last_name">Temperament</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="temperament" id="temperament" />
+            </div>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2 font-bold text-lg text-gray-900" for="email">url</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="url" name="url" id="url" />
+            </div>
+             <div className="flex md:flex-cols-2 justify-around md:gap-6">
+                <div className="flex flex-col mb-4">
+                    <label className="mb-2 font-bold text-lg text-gray-900" for="password">life_spanMin</label>
+                    <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="number" name="life_spanMin" id="life_spanMin" />
+                </div>
+                <div className="flex flex-col mb-4">
+                    <label className="mb-2 font-bold text-lg text-gray-900" for="password">life_spanMax</label>
+                    <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="number" name="life_spanMax" id="life_spanMax" />
+                </div>
+            </div>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2 font-bold text-lg text-gray-900" for="password">origin</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="origin" id="origin" />
+            </div>
+            <button className="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Add cat</button>
+        </form>
+        
     </div>
-    <div className="relative z-0 w-full mb-6 group">
-        <input type="text" name="floating_last_name" id="floating_last_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_last_name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-    </div>
-  </div>
-  <div className="grid md:grid-cols-2 md:gap-6">
-    <div className="relative z-0 w-full mb-6 group">
-        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_phone" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phone number (123-456-7890)</label>
-    </div>
-    <div className="relative z-0 w-full mb-6 group">
-        <input type="text" name="floating_company" id="floating_company" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-        <label for="floating_company" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company (Ex. Google)</label>
-    </div>
-  </div>
-  <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-</form>
+</div>
 </>
     );
 }
