@@ -14,7 +14,7 @@ function App() {
       <SearchBar />
       <Routes>
         <Route path="/" element={<Cats />} />
-        <Route path="/search/:query" element={<Cats />} />
+        <Route path="/:query" element={<Cats />} />
         <Route path="/cats/:id" element={<CatDetails />} />
         <Route path="/createEditCat" element={<CreateEditCat />} />
         <Route path="/breed/:breed" element={<Cats />} />

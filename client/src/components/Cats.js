@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "../axiosInstance";
 
 export default function Cats() {
@@ -150,7 +150,7 @@ export default function Cats() {
         .catch((e) => console.log(e));
     } else if (query) {
       axios
-        .get(`/api/cats/search/${query}`)
+        .get(`/api/cats/${query}`)
         .then((res) => setCats(res.data))
         .catch((e) => console.log(e));
     } else {
@@ -168,9 +168,7 @@ export default function Cats() {
           <img className="w-full" src={cat.url} alt={cat.breed} />
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{cat.breed}</div>
-            <p className="text-gray-700 text-base">
-              {cat.temperament}
-            </p>
+            <p className="text-gray-700 text-base">{cat.temperament}</p>
           </div>
           <div className="px-6 pt-4 pb-2">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
