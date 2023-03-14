@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
-    <footer className="bg-white bg-[#2C74B3]">
+    <footer className="bg-[#2C74B3]">
       <div className="grid grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
         <div>
-          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
+          <h2 className="mb-6 text-sm font-bold text-gray-200 uppercase dark:text-gray-200">
             Company
           </h2>
-          <ul className="text-gray-500 dark:text-gray-800">
+          <ul className="text-gray-200 dark:text-gray-200">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 About
@@ -30,10 +30,10 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
+          <h2 className="mb-6 text-sm font-bold text-gray-200 uppercase dark:text-gray-200">
             Help center
           </h2>
-          <ul className="text-gray-500 dark:text-gray-800">
+          <ul className="text-gray-200 dark:text-gray-200">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 Discord Server
@@ -57,10 +57,10 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
+          <h2 className="mb-6 text-sm font-bold text-gray-200 uppercase dark:text-gray-200">
             Legal
           </h2>
-          <ul className="text-gray-500 dark:text-gray-800">
+          <ul className="text-gray-200 dark:text-gray-200">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 Privacy Policy
@@ -79,10 +79,10 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h2 className="mb-6 text-sm font-bold text-gray-500 uppercase dark:text-gray-800">
+          <h2 className="mb-6 text-sm font-bold text-gray-200 uppercase dark:text-gray-200">
             Download
           </h2>
-          <ul className="text-gray-500 dark:text-gray-800">
+          <ul className="text-gray-200 dark:text-gray-200">
             <li className="mb-4">
               <a href="#!" className="hover:underline">
                 iOS
