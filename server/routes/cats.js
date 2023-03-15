@@ -12,9 +12,9 @@ const {
 console.log("/");
 router.get("/", getAllCats);
 router.get("/:query", searchCats);
-router.get("/:id", getCatById);
+router.get("/details/:id", getCatById);
 router.post("/", createCat);
 router.put("/:id", updateCat);
-router.delete("/:id", deleteCat);
+router.delete("/details/:id", deleteCat);
 
 module.exports = router;

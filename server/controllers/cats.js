@@ -64,7 +64,7 @@ const deleteCat = async (req, res) => {
   try {
     const deletedCat = await Cat.findOneAndDelete({ _id: req.params.id });
     if (!deletedCat) {
-      res.status(404).json({ message: "Cat not Found" });
+      res.status(404).json({ message: "Cat not found" });
     }
     res.json(deletedCat);
   } catch (error) {

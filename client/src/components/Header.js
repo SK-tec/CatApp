@@ -1,6 +1,5 @@
 import logo from "../Images/cat_logo3D.png";
 import { Link } from "react-router-dom";
-import CreateEditCat from "./CreateEditCat";
 
 export default function Header() {
   return (
@@ -14,17 +13,17 @@ export default function Header() {
               alt="KittyCatClub Logo"
             />
             <h1
-              className="text-xl font-bold text-yellow-600"
+              className="text-3xl font-bold text-yellow-600"
               style={{ fontFamily: "Rampart One" }}
             >
               Kitty Cat Club
             </h1>
           </Link>
           <div className="flex md:order-2">
-            <Link to="./CreateEditCat">
+            <Link to="/createEditCat">
               <button
                 type="button"
-                className="text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-800 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="text-white bg-yellow-700 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-yellow-700 dark:hover:bg-yellow-600 dark:focus:ring-yellow-600"
               >
                 Add a cat
               </button>
@@ -45,9 +44,9 @@ export default function Header() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 ></path>
               </svg>
             </button>

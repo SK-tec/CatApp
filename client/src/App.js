@@ -39,7 +39,7 @@ function App() {
             </>
           }
         />
-        <Route path="/cats/:id" element={<CatDetails />} />
+        <Route path="/cat/:id" element={<CatDetails />} />
         <Route path="/createEditCat" element={<CreateEditCat />} />
       </Routes>
       <Footer />
