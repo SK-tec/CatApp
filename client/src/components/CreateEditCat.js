@@ -52,6 +52,11 @@ const navigate = useNavigate();
                 <label className="mb-2 font-bold text-lg text-gray-900" for="password">origin</label>
                 <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="origin" id="origin" />
             </div>
+            <div className="flex flex-col mb-4">
+                <label className="mb-2 font-bold text-lg text-gray-900" for="password">Description</label>
+                <textarea  rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write Description here..." onChange={handleChange}
+                 name="description" id="description"></textarea>
+            </div>
             <button className="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Add cat</button>
         </form>
         

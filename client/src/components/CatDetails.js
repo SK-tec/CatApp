@@ -20,7 +20,9 @@ export default function CatDetails() {
       .then((res) => navigate("/"))
       .catch((e) => console.log(e));
   };
+  const handleUpdate=()=>{
 
+  };
   return (
     <div
       key={cat._id}
@@ -38,9 +40,11 @@ export default function CatDetails() {
             objectPosition: "40% 0",
           }}
         />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">{cat.breed}</div>
-          <p className="text-gray-700 text-base">{cat.temperament}</p>
+        <div className=" py-4">
+          <div className="font-bold text-xl mb-2">Breed:&nbsp;&nbsp;{cat.breed}</div>
+          <p className="font-bold text-gray-700 text-base mt-5">Temperament:&nbsp;{cat.temperament}</p>
+          <hr />
+          <p className="text-gray-700 text-base mt-5">{cat.description}</p>
         </div>
         <div className="px-6 pt-4 pb-2">
           <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
@@ -51,10 +55,14 @@ export default function CatDetails() {
           </span>
         </div>
         <div className="px-6 py-4">
-          <button onClick={handleRemove} className="btn btn-blue">
+          <button onClick={handleUpdate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-5">
+            Update Cat
+          </button>
+          <button onClick={handleRemove} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-5">
             Delete Cat
           </button>
         </div>
+        
       </div>
     </div>
   );
