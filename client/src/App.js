@@ -41,6 +41,7 @@ function App() {
         />
         <Route path="/cat/:id" element={<CatDetails />} />
         <Route path="/createEditCat" element={<CreateEditCat />} />
+        <Route path="/createEditCat/:id" element={<CreateEditCat />} />
       </Routes>
       <Footer />
     </div>

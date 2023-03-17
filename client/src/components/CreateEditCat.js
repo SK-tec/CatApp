@@ -1,67 +1,80 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "../axiosInstance";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function CreateEditCat() {
     
-const navigate = useNavigate();
-  const [cat, setCat] = useState(null);
+  const navigate = useNavigate();
+  const [cat, setCat] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+    axios
+      .get(`/api/cats/details/${id}`)
+      .then((res) => setCat(res.data))
+      .catch((e) => console.log(e));
+    }
+  }, [id]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setCat({ ...cat, [name]: value });
-    
-  }; console.log(cat);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(id){
     axios
+      .put(`/api/cats/${id}`, cat)
+      .then((res) => navigate(`/cat/${id}`))
+      .catch((e) => console.log(e));
+    }else{
+        axios
       .post(`/api/cats`, cat)
       .then((res) => navigate(`/`))
       .catch((e) => console.log(e));
+    }
   };
+
     return(
-        <>
-        
-        <div className="flex justify-center  my-8 w-full ">
+        <div className="flex justify-center my-8 w-full">
     <div className="w-1/2 bg-blue-300 rounded shadow-2xl p-8 m-2">
         <h2 className="block w-full text-center text-gray-800 text-2xl font-bold mb-6">Add cat</h2>
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
             <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold text-lg text-gray-900" for="first_name">Breed</label>
-                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="breed" id="breed" />
+                <label className="mb-2 font-bold text-lg text-gray-900" for="breed">Breed</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="breed" value={id && cat.breed} id="breed" />
             </div>
             <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold text-lg text-gray-900" for="last_name">Temperament</label>
-                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="temperament" id="temperament" />
+                <label className="mb-2 font-bold text-lg text-gray-900" for="temperament">Temperament</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="temperament" value={id && cat.temperament} id="temperament" />
             </div>
             <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold text-lg text-gray-900" for="email">url</label>
-                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="url" name="url" id="url" />
+                <label className="mb-2 font-bold text-lg text-gray-900" for="url">URL</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="url" name="url" value={id && cat.url} id="url" />
             </div>
              <div className="flex md:flex-cols-2 justify-around md:gap-6">
                 <div className="flex flex-col mb-4">
-                    <label className="mb-2 font-bold text-lg text-gray-900" for="password">life_spanMin</label>
-                    <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="number" name="life_spanMin" id="life_spanMin" />
+                    <label className="mb-2 font-bold text-lg text-gray-900" for="life_spanMin">Min life expectancy</label>
+                    <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="number" name="life_spanMin" value={id && cat.life_spanMin} id="life_spanMin" />
                 </div>
                 <div className="flex flex-col mb-4">
-                    <label className="mb-2 font-bold text-lg text-gray-900" for="password">life_spanMax</label>
-                    <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="number" name="life_spanMax" id="life_spanMax" />
+                    <label className="mb-2 font-bold text-lg text-gray-900" for="life_spanMax">Max life expectancy</label>
+                    <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="number" name="life_spanMax" value={id && cat.life_spanMax} id="life_spanMax" />
                 </div>
             </div>
             <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold text-lg text-gray-900" for="password">origin</label>
-                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="origin" id="origin" />
+                <label className="mb-2 font-bold text-lg text-gray-900" for="origin">Origin</label>
+                <input className="border py-2 px-3 text-grey-800" onChange={handleChange} type="text" name="origin" value={id && cat.origin} id="origin" />
             </div>
             <div className="flex flex-col mb-4">
-                <label className="mb-2 font-bold text-lg text-gray-900" for="password">Description</label>
-                <textarea  rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write Description here..." onChange={handleChange}
-                 name="description" id="description"></textarea>
+                <label className="mb-2 font-bold text-lg text-gray-900" for="description">Description</label>
+                <textarea rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write Description here..." onChange={handleChange}
+                 name="description" id="description">{id && cat.description}</textarea>
             </div>
-            <button className="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">Add cat</button>
+            <button className="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">{id ? "Update" : "Add"} cat</button>
         </form>
-        
     </div>
 </div>
-</>
     );
 }

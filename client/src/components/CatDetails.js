@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../axiosInstance";
+
 
 export default function CatDetails() {
   const [cat, setCat] = useState([]);
@@ -20,9 +21,7 @@ export default function CatDetails() {
       .then((res) => navigate("/"))
       .catch((e) => console.log(e));
   };
-  const handleUpdate=()=>{
-
-  };
+  
   return (
     <div
       key={cat._id}
@@ -41,8 +40,8 @@ export default function CatDetails() {
           }}
         />
         <div className=" py-4">
-          <div className="font-bold text-xl mb-2">Breed:&nbsp;&nbsp;{cat.breed}</div>
-          <p className="font-bold text-gray-700 text-base mt-5">Temperament:&nbsp;{cat.temperament}</p>
+          <div className="font-bold text-xl mb-2">Breed: {cat.breed}</div>
+          <p className="font-bold text-gray-700 text-base mt-5">Temperament: {cat.temperament}</p>
           <hr />
           <p className="text-gray-700 text-base mt-5">{cat.description}</p>
         </div>
@@ -55,9 +54,10 @@ export default function CatDetails() {
           </span>
         </div>
         <div className="px-6 py-4">
-          <button onClick={handleUpdate} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-5">
+          <Link to={`/createEditCat/${cat._id}`}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-5">
             Update Cat
-          </button>
+          </button></Link>
           <button onClick={handleRemove} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-5">
             Delete Cat
           </button>
