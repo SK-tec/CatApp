@@ -73,7 +73,7 @@ export default function CreateEditCat() {
                  <textarea rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write Description here..." 
                 onChange={handleChange} name="description" value={id ? cat.description:""}></textarea> 
             </div>
-            <button className="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="submit">{id ? "Update" : "Add"} cat</button>
+            <button className="text-white text-xl bg-yellow-700  hover:bg-yellow-700 focus:ring-3 focus:outline-none focus:ring-yellow-600 font-medium rounded-lg text-sm px-5 py-2 text-center mr-3 md:mr-0 dark:bg-yellow-700 dark:hover:bg-yellow-600 dark:focus:ring-yellow-600" type="submit">{id ? "Update" : "Add"} cat</button>
         </form>
     </div>
 </div>
