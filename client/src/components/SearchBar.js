@@ -14,7 +14,7 @@ export default function SearchBar() {
       <div className="search-bar">
         <form onSubmit={handleSubmit} className="search-content ">
           <input
-            placeholder="Search for cool cats"
+            placeholder="Search for cool cats in your city"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           ></input>
