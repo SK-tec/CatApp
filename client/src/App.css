@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
 
 .App {
   text-align: center;
@@ -30,7 +30,7 @@
   min-width: 25%;
   flex: 1;
   border: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-family: var(--font-raleway);
   font-weight: 500;
   outline: none;
@@ -40,10 +40,25 @@
 
 .search-bar input::placeholder {
   color: #3d3d3d;
+  font-size: 1.3rem;
 }
 
 .search-bar img {
   width: 35px;
   height: 35px;
   cursor: pointer;
+}
+
+a.cat-card {
+  display: inline-block;
+  text-decoration: none !important;
+}
+
+a.cat-card div {
+  transition: 0.5s;
+}
+
+a.cat-card:hover div {
+  transform: scale(1.05);
+  transition: 0.5s;
 }

@@ -39,7 +39,16 @@ function App() {
             </>
           }
         />
+        <Route
+          path="/wwc"
+          element={
+            <>
+              <Cats />
+            </>
+          }
+        />
         <Route path="/cat/:id" element={<CatDetails />} />
+        <Route path="/wwc/cat/:id" element={<CatDetails />} />
         <Route path="/createEditCat" element={<CreateEditCat />} />
         <Route path="/createEditCat/:id" element={<CreateEditCat />} />
       </Routes>
