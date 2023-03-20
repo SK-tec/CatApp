@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "../axiosInstance";
+import moment from 'moment';
 
 export default function CatDetails() {
   const [cat, setCat] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
+ 
 
   useEffect(() => {
     console.log(id);
@@ -43,6 +45,10 @@ export default function CatDetails() {
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-bold text-gray-700 mr-2 mb-2">
               From: {cat.origin}
             </span>
+          </div>
+          <div className="px-6 pt-4 pb-2 text-gray-700 font-bold">
+            CreatedAt:&nbsp;&nbsp;{moment(String(cat.createdAt).substring(0, String(cat.createdAt).indexOf("T")), "YYYYMMDD").fromNow()}
+
           </div>
           
           <div className="px-6 py-4">
