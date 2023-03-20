@@ -6,6 +6,7 @@ import Cats from "./components/Cats";
 import CatDetails from "./components/CatDetails";
 import Footer from "./components/Footer";
 import CreateEditCat from "./components/CreateEditCat";
+import CatDetailsAPI from "./components/CatDetailsAPI"
 
 function App() {
   return (
@@ -48,7 +49,7 @@ function App() {
           }
         />
         <Route path="/cat/:id" element={<CatDetails />} />
-        <Route path="/wwc/cat/:id" element={<CatDetails />} />
+        <Route path="/wwc/cat/:id" element={<CatDetailsAPI />} />
         <Route path="/createEditCat" element={<CreateEditCat />} />
         <Route path="/createEditCat/:id" element={<CreateEditCat />} />
       </Routes>
