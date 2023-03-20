@@ -9,7 +9,7 @@ const createCat = async (req, res) => {
 };
 const getAllCats = async (req, res) => {
   try {
-    const cats = await Cat.find();
+    const cats = await Cat.find().sort({ createdAt: -1 });
     res.json(cats);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -24,7 +24,7 @@ const searchCats = async (req, res) => {
         { temperament: new RegExp(s, "i") },
         { origin: new RegExp(s, "i") },
       ],
-    });
+    }).sort({ createdAt: -1 });
     if (cats.length === 0) {
       res.status(404).json({ message: "No cats found that match your search" });
       return;

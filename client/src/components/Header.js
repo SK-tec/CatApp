@@ -59,7 +59,7 @@ export default function Header() {
               <li>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-4  text-amber-700 text-lg rounded md:hover:text-blue-500 md:p-0 "
+                  className="block py-2 pl-3 pr-4 text-amber-700 text-lg rounded md:hover:text-blue-500 md:p-0 "
                   aria-current="page"
                 >
                   Home
@@ -84,7 +84,7 @@ export default function Header() {
               <li>
                 <Link
                   to="/"
-                  className="block py-2 pl-3 pr-4 text-amber-700 text-lg  rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0 md:dark:hover:text-gray dark:text-gray-550 dark:hover:bg-gray-700 dark:hover:text-gray md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pl-3 pr-4 text-amber-700 text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:p-0 md:dark:hover:text-gray dark:text-gray-550 dark:hover:bg-gray-700 dark:hover:text-gray md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Contact
                 </Link>
