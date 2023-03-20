@@ -38,15 +38,13 @@ export default function Cats() {
       .get(
         `https://api.thecatapi.com/v1/images/search?limit=12&api_key=live_t2TNdxX3yorJpjmAPnHk3TlljQsVC6K8FygnYLo5m0jE6gx5ll6UvxDvN5Wo1xbF`
       )
-      .then((res) => setCats(...cats, res.data))
+      .then((res) => setCats([...cats, ...res.data]))
       .catch((e) => console.log(e));
   };
 
   return (
     <>
-      <h1 className="mt-5 text-3xl">
-        {path === "/wwc" ? "Worldwide Cats" : "Our Cats"}
-      </h1>
+      {path === "/wwc" && <h1 className="mt-5 text-3xl">Worldwide Cats</h1>}
       <div className="md:container mx-auto p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {cats.map((cat) => (
           <Link
