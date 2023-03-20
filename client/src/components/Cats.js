@@ -4,6 +4,7 @@ import axios from "../axiosInstance";
 
 export default function Cats() {
   const [cats, setCats] = useState([]);
+  const[page,setPage]=useState(0)
   const { breed, query } = useParams();
   let path = useLocation().pathname;
 
@@ -21,9 +22,9 @@ export default function Cats() {
     } else if (path === "/wwc") {
       axios
         .get(
-          `https://api.thecatapi.com/v1/images/search?limit=12&api_key=live_t2TNdxX3yorJpjmAPnHk3TlljQsVC6K8FygnYLo5m0jE6gx5ll6UvxDvN5Wo1xbF`
+          `https://api.thecatapi.com/v1/breeds?limit=12&page=${page}&api_key=live_AszGFhmgq5ZrJJH86C2rEawQxBNx3WuefL3LJ96KEsqiTOJ9zSqxxrKk3bQFw5pH`
         )
-        .then((res) => setCats(res.data))
+        .then((res) => {console.log(res.data);setCats(res.data)})
         .catch((e) => console.log(e));
     } else {
       axios
@@ -31,12 +32,13 @@ export default function Cats() {
         .then((res) => setCats(res.data))
         .catch((e) => console.log(e));
     }
-  }, [breed, query, path]);
+  }, [breed, query, path,page]);
 
   const moreCats = () => {
+    setPage(page+1)
     axios
       .get(
-        `https://api.thecatapi.com/v1/images/search?limit=12&api_key=live_t2TNdxX3yorJpjmAPnHk3TlljQsVC6K8FygnYLo5m0jE6gx5ll6UvxDvN5Wo1xbF`
+        `https://api.thecatapi.com/v1/breeds?limit=12&page=${page}&api_key=live_AszGFhmgq5ZrJJH86C2rEawQxBNx3WuefL3LJ96KEsqiTOJ9zSqxxrKk3bQFw5pH`
       )
       .then((res) => setCats([...cats, ...res.data]))
       .catch((e) => console.log(e));
@@ -55,7 +57,7 @@ export default function Cats() {
             <div className="rounded overflow-hidden shadow-xl">
               <img
                 className="w-full"
-                src={cat.url}
+                src={path === "/wwc" ? cat.image.url:cat.url}
                 alt={path === "/wwc" ? "Random cat" : cat.breed}
                 style={{
                   width: "100%",
