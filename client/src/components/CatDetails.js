@@ -29,18 +29,18 @@ export default function CatDetails() {
         </div>
 
         <div className=" py-4">
-          <div className="font-bold text-xl mb-2 text-amber-700">Breed:&nbsp;&nbsp; {cat.breed}</div>
+          <div className="font-bold text-xl mb-2 text-amber-700">Breed: {cat.breed}</div>
           <p className="font-bold text-gray-700 text-base mt-5 mb-3">
-            Temperament: &nbsp;&nbsp; {cat.temperament}
+            Temperament: {cat.temperament}
           </p>
           <hr />
           <p className="text-gray-700 text-base mt-5 text-justify leading-loose text-lg ">{cat.description}</p>
           <div className="px-6 pt-4 pb-2">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-bold text-gray-700 mr-2 mb-2">
-              Life Span: &nbsp; &nbsp;{cat.life_spanMin} - {cat.life_spanMax} years old
+              Life Span: {cat.life_spanMin} - {cat.life_spanMax} years old
             </span>
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-md font-bold text-gray-700 mr-2 mb-2">
-              From: &nbsp; &nbsp; {cat.origin}
+              From: {cat.origin}
             </span>
           </div>
           
